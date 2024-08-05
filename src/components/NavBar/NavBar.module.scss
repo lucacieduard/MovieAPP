@@ -1,0 +1,87 @@
+.navContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 102px;
+    position: relative;
+    .logoContainer {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        img {
+            width: 35px;
+            height: 35px;
+        }
+        span {
+            color: white;
+            font-weight: 800;
+        }
+    }
+
+    .Menu {
+        color: white;
+        position: absolute;
+        top: 90px;
+        width: 100%;
+        border: 3px solid #1f1f1f;
+        border-radius: 10px;
+        padding: 1rem;
+        background-color: #0f0f0f;
+
+        .menuList {
+            .menuItem {
+                margin-bottom: 1rem;
+                a {
+                    padding: 6px 10px;
+                    color: #bfbfbf;
+                    font-size: 14px;
+                    text-decoration: none;
+                }
+                .active {
+                    color: white;
+                    font-weight: 800;
+                    background-color: #1a1a1a;
+                    border-radius: 6px;
+                }
+            }
+        }
+
+        .searchContainer {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem;
+            background-color: #1a1a1a;
+            border-radius: 6px;
+            gap: 5px;
+            input {
+                background-color: transparent;
+                border: none;
+                color: white;
+                width: 100%;
+            }
+            input:focus {
+                outline: none;
+            }
+            button {
+                background-color: transparent;
+                border: none;
+            }
+        }
+    }
+
+    .hide {
+        display: none;
+    }
+
+    .barsButton {
+        width: 48px;
+        height: 48px;
+        border-radius: 6px;
+        border: 3px solid #262626;
+        background-color: #1a1a1a;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
