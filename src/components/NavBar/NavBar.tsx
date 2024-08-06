@@ -39,7 +39,7 @@ const NavBar = () => {
               className={({ isActive }) => (isActive ? `${styles.active}` : ``)}
               end
             >
-              Test
+              Home
             </NavLink>
           </li>
           <li className={styles.menuItem}>
