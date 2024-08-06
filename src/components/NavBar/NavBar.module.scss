@@ -5,17 +5,36 @@
     height: 102px;
     position: relative;
     z-index: 2;
+
     .logoContainer {
         display: flex;
         align-items: center;
         gap: 2px;
+        flex: 1;
         img {
             width: 35px;
             height: 35px;
+
+            @media (min-width: 1000px) {
+                width: 50px;
+                height: 50px;
+            }
         }
         span {
             color: white;
             font-weight: 800;
+
+            @media (min-width: 1000px) {
+                font-size: 24px;
+            }
+        }
+    }
+
+    .hide {
+        display: none;
+
+        @media (min-width: 1000px) {
+            display: unset;
         }
     }
 
@@ -29,20 +48,63 @@
         padding: 1rem;
         background-color: #0f0f0f;
 
+        @media (min-width: 1000px) {
+            flex: 2;
+            display: flex;
+            position: unset;
+            top: unset;
+            width: unset;
+            background-color: transparent;
+            border: none;
+            padding: unset;
+        }
+
         .menuList {
+            @media (min-width: 1000px) {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #0f0f0f;
+                border: 3px solid #1f1f1f;
+                gap: 0px;
+                border-radius: 10px;
+                padding: 1rem 0rem;
+            }
+
+            @media (min-width: 1450px) {
+                padding: 1.2rem 0rem;
+            }
+
             .menuItem {
                 margin-bottom: 1rem;
+                @media (min-width: 1000px) {
+                    margin-bottom: 0;
+                }
+
                 a {
                     padding: 6px 10px;
                     color: #bfbfbf;
                     font-size: 14px;
                     text-decoration: none;
+                    line-height: 21px;
+                    @media (min-width: 1000px) {
+                        padding: 0 0.5rem;
+                        padding: 12px 20px;
+                    }
+                    @media (min-width: 1450px) {
+                        font-size: 16px;
+                    }
                 }
                 .active {
                     color: white;
                     font-weight: 800;
                     background-color: #1a1a1a;
                     border-radius: 6px;
+
+                    @media (min-width: 1000px) {
+                        padding: 12px 20px;
+                    }
                 }
             }
         }
@@ -55,24 +117,52 @@
             background-color: #1a1a1a;
             border-radius: 6px;
             gap: 5px;
+
+            @media (min-width: 1000px) {
+                flex: 1;
+                justify-content: flex-end;
+                background-color: transparent;
+                gap: 0;
+                padding: unset;
+            }
+
             input {
                 background-color: transparent;
                 border: none;
                 color: white;
-                width: 100%;
+                padding: 0.5rem;
+
+                @media (min-width: 1000px) {
+                    background-color: #0f0f0f;
+                    padding-left: 1rem;
+                    width: 200px;
+                    border: 3px solid #1f1f1f;
+                    border-right: none;
+                    border-radius: 6px 0px 0px 6px;
+                }
+
+                @media (min-width: 1450px) {
+                    width: 300px;
+                    font-size: 15px;
+                }
             }
+
             input:focus {
                 outline: none;
             }
             button {
                 background-color: transparent;
                 border: none;
+
+                @media (min-width: 1000px) {
+                    background-color: #0f0f0f;
+                    padding: 0.5rem;
+                    border: 3px solid #1f1f1f;
+                    border-left: none;
+                    border-radius: 0px 6px 6px 0px;
+                }
             }
         }
-    }
-
-    .hide {
-        display: none;
     }
 
     .barsButton {
@@ -84,5 +174,9 @@
         display: flex;
         align-items: center;
         justify-content: center;
+
+        @media (min-width: 1000px) {
+            display: none;
+        }
     }
 }

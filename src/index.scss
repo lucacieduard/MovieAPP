@@ -11,4 +11,16 @@ body {
     font-family: "Manrope", sans-serif;
     background-color: #141414;
     padding: 0 16px;
+    max-width: 1900px;
+    margin: 0 auto;
+
+    @media (min-width: 1150px) {
+        padding: 0 40px;
+    }
+    @media (min-width: 1450px) {
+        padding: 0 80px;
+    }
+    @media (min-width: 1800px) {
+        padding: 0 160px;
+    }
 }

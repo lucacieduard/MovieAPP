@@ -11,6 +11,7 @@ import { useState } from "react";
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const closeMenu = () => setIsMenuOpen(false);
+
   return (
     <nav className={styles.navContainer}>
       <div className={styles.logoContainer}>
@@ -29,6 +30,16 @@ const NavBar = () => {
               end
             >
               Home
+            </NavLink>
+          </li>
+          <li className={styles.menuItem}>
+            <NavLink
+              onClick={closeMenu}
+              to={"/test"}
+              className={({ isActive }) => (isActive ? `${styles.active}` : ``)}
+              end
+            >
+              Test
             </NavLink>
           </li>
           <li className={styles.menuItem}>
