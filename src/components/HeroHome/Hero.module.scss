@@ -1,0 +1,52 @@
+.HeroContainer {
+    height: fit-content;
+    .HeroImg {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        right: 0px;
+        left: 0px;
+        width: 100%;
+        object-fit: cover;
+        height: 500px;
+    }
+
+    .HeroContent {
+        text-align: center;
+        top: 300px;
+        position: relative;
+        color: white;
+        z-index: 4;
+
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: white;
+            line-height: 42px;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 14px;
+            line-height: 21px;
+            font-weight: 400;
+            color: #999;
+            span {
+                display: none;
+            }
+        }
+        button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15.5px 24px;
+            background-color: #e50000;
+            color: white;
+            font-size: 14px;
+            margin: 30px auto 0 auto;
+            font-weight: 600;
+            line-height: 21px;
+            border: none;
+            border-radius: 8px;
+        }
+    }
+}
