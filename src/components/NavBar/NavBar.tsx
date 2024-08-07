@@ -32,24 +32,15 @@ const NavBar = () => {
               Home
             </NavLink>
           </li>
+
           <li className={styles.menuItem}>
             <NavLink
               onClick={closeMenu}
-              to={"/test"}
+              to={"/movies-and-series"}
               className={({ isActive }) => (isActive ? `${styles.active}` : ``)}
               end
             >
-              Home
-            </NavLink>
-          </li>
-          <li className={styles.menuItem}>
-            <NavLink
-              onClick={closeMenu}
-              to={"/movies"}
-              className={({ isActive }) => (isActive ? `${styles.active}` : ``)}
-              end
-            >
-              Movies
+              Movies & Series
             </NavLink>
           </li>
           <li className={styles.menuItem}>
@@ -59,7 +50,7 @@ const NavBar = () => {
               className={({ isActive }) => (isActive ? `${styles.active}` : ``)}
               end
             >
-              Series
+              Support
             </NavLink>
           </li>
         </ul>
