@@ -21,7 +21,9 @@ const HeroCard = ({ active, id, movie }: HeroCardProps) => {
           <h2 className={styles.MovieTitle}>
             {movie.title ? movie.title : movie.name}
           </h2>
-          <p className={styles.MovieOverview}>{movie.overview}</p>
+          <p className={styles.MovieOverview}>
+            {movie.overview.slice(0, 150)} ...
+          </p>
           <div className={styles.buttons}>
             <button className={styles.MoreInfo}>
               <ArrowLongRightIcon width={24} height={24} />

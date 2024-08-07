@@ -6,6 +6,10 @@
     border: none;
     position: relative;
 
+    @media (min-width: 1250px) {
+        height: 500px;
+    }
+
     .CardContainer {
         height: 100%;
         position: relative;
@@ -26,6 +30,10 @@
             display: flex;
             flex-direction: column;
             gap: 20px;
+
+            @media (min-width: 1250px) {
+                bottom: 80px;
+            }
             .MovieTitle {
                 font-size: 24px;
                 font-weight: 700;
@@ -34,11 +42,27 @@
             }
             .MovieOverview {
                 display: none;
+                @media (min-width: 1050px) {
+                    display: block;
+                    font-weight: 500;
+                    font-size: 16px;
+                    line-height: 24px;
+                    color: #999;
+                    max-width: 500px;
+                    margin: 0 auto;
+                }
             }
             .buttons {
                 display: flex;
                 flex-direction: column;
+                align-items: center;
                 gap: 20px;
+
+                @media (min-width: 600px) {
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                }
 
                 .MoreInfo {
                     background-color: #e50000;
@@ -53,6 +77,13 @@
                     align-items: center;
                     justify-content: center;
                     gap: 2px;
+                    padding: 14px 20px;
+
+                    max-width: 300px;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
                 }
 
                 .actions {
@@ -65,6 +96,13 @@
                         padding: 12px;
                         color: white;
                         border-radius: 8px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        &:hover {
+                            cursor: pointer;
+                        }
                     }
                 }
             }
@@ -81,9 +119,13 @@
         left: 24px;
         right: 24px;
 
+        @media (min-width: 1250px) {
+            bottom: 15px;
+        }
+
         button {
             background-color: #0f0f0f;
-            border: 1px solid #1f1f1f;
+            border: 3px solid #1f1f1f;
             color: white;
             display: flex;
             align-items: center;
@@ -91,9 +133,21 @@
             border-radius: 8px;
             padding: 8px;
 
+            @media (min-width: 1250px) {
+                padding: 12px;
+            }
+
             svg {
                 width: 18px;
                 height: 18px;
+
+                @media (min-width: 1250px) {
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+            &:hover {
+                cursor: pointer;
             }
         }
 
@@ -106,6 +160,9 @@
                 height: 4px;
                 background-color: white;
                 border-radius: 100px;
+                &:hover {
+                    cursor: pointer;
+                }
             }
 
             .active {

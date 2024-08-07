@@ -19,7 +19,7 @@ const HeroMoviesSeries = () => {
 
   useEffect(() => {
     if (data.results) {
-      const randomData = getRandom(data.results, 3);
+      const randomData = getRandom(data.results, 4);
       setRandom(randomData as MovieType[]);
     }
   }, [data]);
@@ -35,7 +35,7 @@ const HeroMoviesSeries = () => {
       <HeroControler
         activeMovie={activeMovie}
         changeMovieHandler={changeMovieHandler}
-        moviesLen={3}
+        moviesLen={random.length}
       />
     </div>
   );

@@ -24,11 +24,12 @@ const HeroControler = (props: HeroControlerProps) => {
         <ArrowLongLeftIcon />
       </button>
       <div className={styles.lines}>
-        {Array(3)
+        {Array(props.moviesLen)
           .fill(0)
           .map((_, index) => {
             return (
               <span
+                onClick={() => props.changeMovieHandler(index)}
                 key={index}
                 className={
                   index === props.activeMovie
@@ -39,8 +40,8 @@ const HeroControler = (props: HeroControlerProps) => {
             );
           })}
       </div>
-      <button>
-        <ArrowLongRightIcon onClick={() => clickHandler("+")} />
+      <button onClick={() => clickHandler("+")}>
+        <ArrowLongRightIcon />
       </button>
     </div>
   );
