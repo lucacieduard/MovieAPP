@@ -25,3 +25,15 @@ export type HeroDataType = {
     total_pages: number;
     total_results: number;
 };
+
+export type SectionType = {
+    title: string;
+    section: string;
+};
+
+export type SectionsType = {
+    [genres: string]: SectionType;
+    trending_now: SectionType;
+    new_releases: SectionType;
+    must_watch: SectionType;
+};

@@ -1,0 +1,122 @@
+.container {
+    .controlerContainer {
+        margin-top: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px;
+        background-color: #0f0f0f;
+        border: 1px solid #262626;
+        border-radius: 8px;
+
+        // display none for big screen
+
+        @media (min-width: 950px) {
+            display: none;
+        }
+
+        button {
+            flex: 1;
+            padding: 12px 0;
+            color: #999999;
+            background-color: transparent;
+            border: none;
+            font-weight: 500;
+            line-height: 21px;
+        }
+
+        .active {
+            border-radius: 6px;
+            background-color: #1f1f1f;
+            color: white;
+        }
+    }
+
+    .watchTypeContainer {
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        position: relative;
+
+        @media (min-width: 950px) {
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid #262626;
+        }
+
+        .ticket {
+            display: none;
+
+            @media (min-width: 950px) {
+                display: block;
+                background-color: red;
+                position: absolute;
+                top: -19px;
+                left: 40px;
+                font-size: 18px;
+                line-height: 16px;
+                font-weight: 700;
+                color: white;
+                border-radius: 6px;
+                padding: 10px 20px;
+            }
+        }
+        .SectionContainer {
+            .SectionControlerContainer {
+                .SectionTitle {
+                    color: white;
+                    font-weight: bold;
+                    font-size: 24px;
+                    line-height: 150%;
+                }
+            }
+
+            .ourGenresContainer {
+                margin-top: 20px;
+                display: flex;
+                gap: 20px;
+                overflow-x: scroll;
+                align-items: center;
+                justify-content: flex-start;
+                -ms-overflow-style: none; /* IE and Edge */
+                scrollbar-width: none; /* Firefox */
+
+                @media (min-width: 950px) {
+                    overflow-x: none;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                }
+
+                .genreType {
+                    font-size: 14px;
+                    font-weight: 500;
+                    min-width: fit-content;
+                    color: #bfbfbf;
+                    padding: 15px;
+                    border-radius: 8px;
+                    border: 3px solid #262626;
+                    @media (min-width: 950px) {
+                        font-size: 16px;
+                        padding: 16px 20px;
+
+                        &:hover {
+                            background-color: #1a1a1a;
+                            cursor: pointer;
+                            color: white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .hideWatchTypeMobile {
+        display: none;
+        // display flex for big screen
+
+        @media (min-width: 950px) {
+            display: flex;
+        }
+    }
+}
