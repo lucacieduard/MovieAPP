@@ -21,7 +21,11 @@ const HeroMoviesSeries = () => {
 
   useEffect(() => {
     if (data.data) {
-      const randomData = getRandom(data.data.results, 4);
+      let randomData: MovieType[] = getRandom<MovieType[]>(
+        data.data.results,
+        4
+      );
+      randomData = randomData.filter((movie) => movie.backdrop_path !== null);
       setRandom(randomData as MovieType[]);
     }
   }, [data]);

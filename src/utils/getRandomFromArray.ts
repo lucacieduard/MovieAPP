@@ -1,6 +1,6 @@
 
 
-export const getRandom = (arr: unknown[], nrElem: number) => {
+export const getRandom = <T>(arr: unknown[], nrElem: number) => {
     const newArr: unknown[] = [];
     const usedIds: number[] = [];
     for (let i = 0; i < nrElem; i++) {
@@ -12,5 +12,5 @@ export const getRandom = (arr: unknown[], nrElem: number) => {
             usedIds.push(random);
         }
     }
-    return newArr;
+    return newArr as T;
 };
