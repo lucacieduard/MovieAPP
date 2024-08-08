@@ -9,10 +9,27 @@
     gap: 12px;
     border-radius: 10px;
 
+    @media (min-width: 950px) {
+        width: 225px;
+        height: unset;
+    }
+    @media (min-width: 1550px) {
+        width: 285px;
+        height: unset;
+    }
+
     img {
-        height: 157px;
+        width: 157px;
         height: 195px;
         border-radius: 10px;
+        object-fit: cover;
+
+        @media (min-width: 950px) {
+            height: 232px;
+        }
+        @media (min-width: 1550px) {
+            height: 243px;
+        }
     }
 
     .CardInfo {
@@ -30,6 +47,10 @@
             border: 2px solid #262626;
             padding: 4px 6px;
             font-size: 10px;
+
+            @media (min-width: 950px) {
+                font-size: 14px;
+            }
             svg {
                 width: 16px;
                 height: 16px;

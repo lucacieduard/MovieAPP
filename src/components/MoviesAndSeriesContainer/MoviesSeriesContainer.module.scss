@@ -62,60 +62,115 @@
                 padding: 10px 20px;
             }
         }
-        .SectionContainer {
-            .SectionControlerContainer {
-                .SectionTitle {
-                    color: white;
-                    font-weight: bold;
-                    font-size: 24px;
-                    line-height: 150%;
-                }
+
+        .SectionControlerContainer {
+            display: flex;
+            justify-content: space-between;
+            // align-items: center;
+            .SectionTitle {
+                color: white;
+                font-weight: bold;
+                font-size: 24px;
+                line-height: 150%;
             }
 
-            .ourGenresContainer {
-                margin-top: 20px;
-                display: flex;
-                gap: 20px;
-                overflow-x: scroll;
-                align-items: center;
-                justify-content: flex-start;
-                -ms-overflow-style: none; /* IE and Edge */
-                scrollbar-width: none; /* Firefox */
+            .SlideControler {
+                display: none;
 
                 @media (min-width: 950px) {
-                    overflow-x: none;
-                    flex-wrap: wrap;
-                    justify-content: center;
-                }
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    gap: 20px;
+                    background-color: #0f0f0f;
+                    padding: 16px;
+                    border-radius: 12px;
 
-                .genreType {
-                    font-size: 14px;
-                    font-weight: 500;
-                    min-width: fit-content;
-                    color: #bfbfbf;
-                    padding: 15px;
-                    border-radius: 8px;
-                    border: 3px solid #262626;
-                    @media (min-width: 950px) {
-                        font-size: 16px;
-                        padding: 16px 20px;
+                    .line {
+                        width: 100px;
+                        height: 3px;
+                        background-color: #333333;
+                        border-radius: 100px;
+
+                        div {
+                            border-radius: 100px;
+                            height: 3px;
+                            background-color: red;
+                            transition: width 1s ease-in-out;
+                        }
+                    }
+
+                    button {
+                        background-color: #1a1a1a;
+                        border-radius: 8px;
+                        border: 1px solid #1f1f1f;
+                        color: #bfbfbf;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 8px;
 
                         &:hover {
-                            background-color: #1a1a1a;
                             cursor: pointer;
                             color: white;
+                        }
+                        svg {
+                            width: 20px;
+                            height: 20px;
                         }
                     }
                 }
             }
+        }
 
-            .TrendingCardsContainer {
-                margin-top: 20px;
-                display: flex;
-                overflow-y: scroll;
-                -ms-overflow-style: none; /* IE and Edge */
-                scrollbar-width: none; /* Firefox */
-                gap: 16px;
+        .ourGenresContainer {
+            margin-top: 20px;
+            display: flex;
+            gap: 20px;
+            overflow-x: scroll;
+            align-items: center;
+            justify-content: flex-start;
+            -ms-overflow-style: none; /* IE and Edge */
+            scrollbar-width: none; /* Firefox */
+
+            @media (min-width: 950px) {
+                overflow-x: none;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .genreType {
+                font-size: 14px;
+                font-weight: 500;
+                min-width: fit-content;
+                color: #bfbfbf;
+                padding: 15px;
+                border-radius: 8px;
+                border: 3px solid #262626;
+                @media (min-width: 950px) {
+                    font-size: 16px;
+                    padding: 16px 20px;
+
+                    &:hover {
+                        background-color: #1a1a1a;
+                        cursor: pointer;
+                        color: white;
+                    }
+                }
+            }
+        }
+
+        .TrendingCardsContainer {
+            margin-top: 20px;
+            display: flex;
+            overflow-y: scroll;
+            -ms-overflow-style: none; /* IE and Edge */
+            scrollbar-width: none; /* Firefox */
+            gap: 16px;
+            scroll-behavior: smooth;
+
+            @media (min-width: 950px) {
+                gap: 20px;
             }
         }
     }
