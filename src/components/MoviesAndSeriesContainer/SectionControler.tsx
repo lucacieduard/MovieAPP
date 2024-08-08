@@ -5,7 +5,7 @@ type SectionControlerProps = {
   sectionType: "movies" | "series";
 };
 
-const SectionControler = ({ title, sectionType }: SectionControlerProps) => {
+const SectionControler = ({ title }: SectionControlerProps) => {
   return (
     <div className={styles.SectionControlerContainer}>
       <h2 className={styles.SectionTitle}>{title}</h2>
