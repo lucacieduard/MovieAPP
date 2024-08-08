@@ -1,15 +1,11 @@
 import { useEffect, useState } from "react";
-import { MovieType } from "../types";
 
-export type DataType = {
-  page: number;
-  results: MovieType[];
-  total_pages: number;
-  total_results: number;
+type DType<T> = {
+  data: T;
 };
 
-export const useFetch = function (URL: string) {
-  const [data, setData] = useState<DataType>({} as DataType);
+export const useFetch = function <T>(URL: string) {
+  const [data, setData] = useState<DType<T>>({} as DType<T>);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
@@ -21,9 +17,11 @@ export const useFetch = function (URL: string) {
             Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
           },
         });
-        const data: DataType = await response.json();
+        const data: T = await response.json();
         if (!response.ok) throw new Error();
-        setData(data);
+        setData({
+          data: data,
+        });
       } catch (error) {
         console.log(error);
         setError(true);
@@ -36,7 +34,7 @@ export const useFetch = function (URL: string) {
   }, []);
 
   return [data, loading, error] as [
-    data: DataType,
+    data: DType<T>,
     loading: boolean,
     error: boolean
   ];

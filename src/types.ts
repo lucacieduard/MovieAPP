@@ -18,3 +18,10 @@ export type MovieType = {
     origin_country: string,
     name: string,
 }
+
+export type HeroDataType = {
+    page: number;
+    results: MovieType[];
+    total_pages: number;
+    total_results: number;
+};

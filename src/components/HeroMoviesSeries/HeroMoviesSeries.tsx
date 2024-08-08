@@ -4,10 +4,12 @@ import HeroControler from "./HeroControler";
 import styles from "./HeroMoviesSeries.module.scss";
 import { useFetch } from "../../hooks/useFetch";
 import { getRandom } from "../../utils/getRandomFromArray";
-import { MovieType } from "../../types";
+import { HeroDataType, MovieType } from "../../types";
 
 const HeroMoviesSeries = () => {
-  const [data, loading, error] = useFetch("/trending/all/day?language=en-US");
+  const [data, loading, error] = useFetch<HeroDataType>(
+    "/trending/all/day?language=en-US"
+  );
   const [activeMovie, setActiveMovie] = useState(0);
   const [random, setRandom] = useState<MovieType[]>([]);
 
@@ -18,8 +20,8 @@ const HeroMoviesSeries = () => {
   };
 
   useEffect(() => {
-    if (data.results) {
-      const randomData = getRandom(data.results, 4);
+    if (data.data) {
+      const randomData = getRandom(data.data.results, 4);
       setRandom(randomData as MovieType[]);
     }
   }, [data]);
