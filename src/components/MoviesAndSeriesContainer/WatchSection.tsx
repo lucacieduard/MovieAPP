@@ -17,7 +17,7 @@ const WatchSection = ({ section, sectionType }: WatchSectionProps) => {
       case "genres":
         return <OurGenres sectionType={sectionType} />;
       case "trending_now":
-        return <TrendingNow />;
+        return <TrendingNow sectionType={sectionType} />;
       case "new_releases":
         return <NewReleases />;
       case "must_watch":

@@ -101,7 +101,11 @@
                         justify-content: center;
 
                         &:hover {
-                            cursor: pointer;
+                            &:hover {
+                                background-color: #1a1a1a;
+                                cursor: pointer;
+                                color: white;
+                            }
                         }
                     }
                 }
@@ -147,7 +151,9 @@
                 }
             }
             &:hover {
+                background-color: #1a1a1a;
                 cursor: pointer;
+                color: white;
             }
         }
 

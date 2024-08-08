@@ -20,7 +20,9 @@ const OurGenres = ({ sectionType }: OurGenresProps) => {
     <div className={styles.ourGenresContainer}>
       {genres.data &&
         genres.data.genres.map((type) => (
-          <span className={styles.genreType}>{type.name}</span>
+          <span className={styles.genreType} key={type.name}>
+            {type.name}
+          </span>
         ))}
     </div>
   );

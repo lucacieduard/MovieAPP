@@ -108,6 +108,15 @@
                     }
                 }
             }
+
+            .TrendingCardsContainer {
+                margin-top: 20px;
+                display: flex;
+                overflow-y: scroll;
+                -ms-overflow-style: none; /* IE and Edge */
+                scrollbar-width: none; /* Firefox */
+                gap: 16px;
+            }
         }
     }
 
