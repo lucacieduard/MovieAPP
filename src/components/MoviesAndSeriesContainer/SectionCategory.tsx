@@ -1,13 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import { useFetch } from "../../hooks/useFetch";
-import { MovieType } from "../../types";
+import { MovieType, SectionsType } from "../../types";
 import MovieTvCard from "../MovieTvCard/MovieTvCard";
 import styles from "./MoviesSeriesContainer.module.scss";
 import SectionControler from "./SectionControler";
+import OurGenres from "./OurGenres";
 
-type TrendingNowProps = {
+type SectionCategoryProps = {
   sectionType: "movies" | "series";
-  title: string;
+  category_type: "genres" | "trending_now" | "new_releases" | "must_watch";
+  config: SectionsType;
 };
 
 type DType = {
@@ -17,9 +19,15 @@ type DType = {
   total_results: number;
 };
 
-const TrendingNow = ({ sectionType, title }: TrendingNowProps) => {
+const SectionCategory = ({
+  sectionType,
+  category_type,
+  config,
+}: SectionCategoryProps) => {
   const [movies, loading, error] = useFetch<DType>(
-    `/trending/${sectionType === "movies" ? "movie" : "tv"}/day?language=en-US`
+    config[
+      category_type as "genres" | "trending_now" | "new_releases" | "must_watch"
+    ].url
   );
   const scrollRef = useRef<HTMLDivElement>(null);
   const [scrolLevel, setScrolLevel] = useState(0);
@@ -56,24 +64,33 @@ const TrendingNow = ({ sectionType, title }: TrendingNowProps) => {
     });
   }, [scrolLevel]);
 
+  if (category_type === "genres") {
+    return <OurGenres sectionType={sectionType} />;
+  }
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error...</p>;
 
   return (
     <div className={styles.SectionContainer}>
       <SectionControler
-        title={title}
+        title={config[category_type].title}
         sectionType={sectionType}
         moveSlider={moveSlider}
         percentage={percentage}
       />
       <div className={styles.TrendingCardsContainer} ref={scrollRef}>
         {movies.data.results.map((movie) => (
-          <MovieTvCard movie={movie} key={movie.id} />
+          <MovieTvCard
+            movie={movie}
+            key={movie.id}
+            category_type={category_type}
+            sectionType={sectionType}
+          />
         ))}
       </div>
     </div>
   );
 };
 
-export default TrendingNow;
+export default SectionCategory;

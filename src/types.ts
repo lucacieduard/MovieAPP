@@ -29,6 +29,7 @@ export type HeroDataType = {
 export type SectionType = {
     title: string;
     section: string;
+    url: string;
 };
 
 export type SectionsType = {

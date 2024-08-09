@@ -1,6 +1,6 @@
-import { sections } from "../../utils/config";
+import { getConfig } from "../../utils/getConfigSection";
 import styles from "./MoviesSeriesContainer.module.scss";
-import WatchSection from "./WatchSection";
+import SectionCategory from "./SectionCategory";
 
 type WatchTypeProps = {
   wType: "movies" | "series";
@@ -8,6 +8,8 @@ type WatchTypeProps = {
 };
 
 const WatchType = ({ wType, myType }: WatchTypeProps) => {
+  const config = getConfig(myType);
+
   return (
     <div
       className={
@@ -19,11 +21,18 @@ const WatchType = ({ wType, myType }: WatchTypeProps) => {
       <span className={styles.ticket}>
         {myType == "movies" ? "Movies" : "Series"}
       </span>
-      {Object.keys(sections).map((section_type: string, index: number) => (
-        <WatchSection
+      {Object.keys(config).map((category_type: string, index: number) => (
+        <SectionCategory
           key={index}
-          section={sections[section_type]}
           sectionType={myType}
+          category_type={
+            category_type as
+              | "genres"
+              | "trending_now"
+              | "new_releases"
+              | "must_watch"
+          }
+          config={config}
         />
       ))}
     </div>
