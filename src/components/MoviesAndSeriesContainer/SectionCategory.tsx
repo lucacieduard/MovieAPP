@@ -74,6 +74,7 @@ const SectionCategory = ({
         moveSlider={moveSlider}
         percentage={percentage}
       />
+
       <div className={styles.TrendingCardsContainer} ref={scrollRef}>
         {movies.data.results.map((movie) => (
           <MovieTvCard

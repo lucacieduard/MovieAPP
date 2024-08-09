@@ -17,14 +17,26 @@ const OurGenres = ({ sectionType }: OurGenresProps) => {
   if (error) return <div>Errorr...</div>;
 
   return (
-    <div className={styles.ourGenresContainer}>
-      {genres.data &&
-        genres.data.genres.map((type) => (
-          <span className={styles.genreType} key={type.name}>
-            {type.name}
-          </span>
-        ))}
-    </div>
+    <>
+      <h2
+        style={{
+          color: "white",
+          fontWeight: "bold",
+          fontSize: "24px",
+          lineHeight: "150%",
+        }}
+      >
+        Our Genres
+      </h2>
+      <div className={styles.ourGenresContainer}>
+        {genres.data &&
+          genres.data.genres.map((type) => (
+            <span className={styles.genreType} key={type.name}>
+              {type.name}
+            </span>
+          ))}
+      </div>
+    </>
   );
 };
 
