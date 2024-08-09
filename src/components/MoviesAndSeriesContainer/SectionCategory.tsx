@@ -4,7 +4,6 @@ import { MovieType, SectionsType } from "../../types";
 import MovieTvCard from "../MovieTvCard/MovieTvCard";
 import styles from "./MoviesSeriesContainer.module.scss";
 import SectionControler from "./SectionControler";
-import OurGenres from "./OurGenres";
 
 type SectionCategoryProps = {
   sectionType: "movies" | "series";
@@ -63,10 +62,6 @@ const SectionCategory = ({
       return prev;
     });
   }, [scrolLevel]);
-
-  if (category_type === "genres") {
-    return <OurGenres sectionType={sectionType} />;
-  }
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error...</p>;

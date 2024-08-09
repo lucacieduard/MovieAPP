@@ -18,9 +18,16 @@ const MovieTvCard = ({
   sectionType,
 }: MovieTvCardProps) => {
   return (
-    <div className={styles.CardContainer}>
+    <div
+      className={`${styles.CardContainer} ${
+        category_type === "must_watch" && styles.MustWatch
+      }`}
+    >
       <img src={`${import.meta.env.VITE_BASE_IMG_URL}${movie.poster_path}`} />
-      <div className={styles.CardInfo}>
+      {category_type === "new_releases" && sectionType === "movies" && (
+        <span className={styles.tiket}>Now</span>
+      )}
+      <div className={`${styles.CardInfo}`}>
         {(category_type === "trending_now" ||
           category_type === "new_releases") && (
           <>

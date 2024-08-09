@@ -17,6 +17,7 @@ export const useFetch = function <T>(URL: string) {
             Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
           },
         });
+
         const data: T = await response.json();
         if (!response.ok) throw new Error();
         setData({
