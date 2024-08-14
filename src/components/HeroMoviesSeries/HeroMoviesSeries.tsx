@@ -1,10 +1,11 @@
-import { useEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import HeroCard from "./HeroCard";
 import HeroControler from "./HeroControler";
 import styles from "./HeroMoviesSeries.module.scss";
 import { useFetch } from "../../hooks/useFetch";
 import { getRandom } from "../../utils/getRandomFromArray";
 import { HeroDataType, MovieType } from "../../types";
+import Loading from "../Loading/Loading";
 
 const HeroMoviesSeries = () => {
   const [data, loading, error] = useFetch<HeroDataType>(
@@ -26,7 +27,7 @@ const HeroMoviesSeries = () => {
 
   scrollRef.current?.scroll(oneScroll * activeMovie, 0);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (data.data) {
       let randomData: MovieType[] = getRandom<MovieType[]>(
         data.data.results,
@@ -37,21 +38,26 @@ const HeroMoviesSeries = () => {
     }
   }, [data]);
 
-  if (loading) return <div>Loading</div>;
   if (error) return <div> Error</div>;
 
   return (
     <div className={styles.HeroContainer}>
-      <div className={styles.CardsContainer} ref={scrollRef}>
-        {random.map((movie, index) => (
-          <HeroCard key={index} movie={movie} />
-        ))}
-      </div>
-      <HeroControler
-        activeMovie={activeMovie}
-        changeMovieHandler={changeMovieHandler}
-        moviesLen={random.length}
-      />
+      {loading ? (
+        <Loading />
+      ) : (
+        <>
+          <div className={styles.CardsContainer} ref={scrollRef}>
+            {random.map((movie, index) => (
+              <HeroCard key={index} movie={movie} />
+            ))}
+          </div>
+          <HeroControler
+            activeMovie={activeMovie}
+            changeMovieHandler={changeMovieHandler}
+            moviesLen={random.length}
+          />
+        </>
+      )}
     </div>
   );
 };

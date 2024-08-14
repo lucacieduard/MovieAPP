@@ -4,6 +4,7 @@ import { MovieType, SectionsType } from "../../types";
 import MovieTvCard from "../MovieTvCard/MovieTvCard";
 import styles from "./MoviesSeriesContainer.module.scss";
 import SectionControler from "./SectionControler";
+import Loading from "../Loading/Loading";
 
 type SectionCategoryProps = {
   sectionType: "movies" | "series";
@@ -63,28 +64,32 @@ const SectionCategory = ({
     });
   }, [scrolLevel]);
 
-  if (loading) return <p>Loading...</p>;
   if (error) return <p>Error...</p>;
 
   return (
     <div className={styles.SectionContainer}>
-      <SectionControler
-        title={config[category_type].title}
-        sectionType={sectionType}
-        moveSlider={moveSlider}
-        percentage={percentage}
-      />
-
-      <div className={styles.TrendingCardsContainer} ref={scrollRef}>
-        {movies.data.results.map((movie) => (
-          <MovieTvCard
-            movie={movie}
-            key={movie.id}
-            category_type={category_type}
+      {loading ? (
+        <Loading />
+      ) : (
+        <>
+          <SectionControler
+            title={config[category_type].title}
             sectionType={sectionType}
+            moveSlider={moveSlider}
+            percentage={percentage}
           />
-        ))}
-      </div>
+          <div className={styles.TrendingCardsContainer} ref={scrollRef}>
+            {movies.data.results.map((movie) => (
+              <MovieTvCard
+                movie={movie}
+                key={movie.id}
+                category_type={category_type}
+                sectionType={sectionType}
+              />
+            ))}
+          </div>
+        </>
+      )}
     </div>
   );
 };

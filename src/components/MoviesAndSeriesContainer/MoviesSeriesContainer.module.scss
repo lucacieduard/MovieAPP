@@ -63,66 +63,6 @@
             }
         }
 
-        .SectionControlerContainer {
-            display: flex;
-            justify-content: space-between;
-            // align-items: center;
-            .SectionTitle {
-                color: white;
-                font-weight: bold;
-                font-size: 24px;
-                line-height: 150%;
-            }
-
-            .SlideControler {
-                display: none;
-
-                @media (min-width: 950px) {
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    gap: 20px;
-                    background-color: #0f0f0f;
-                    padding: 16px;
-                    border-radius: 12px;
-
-                    .line {
-                        width: 100px;
-                        height: 3px;
-                        background-color: #333333;
-                        border-radius: 100px;
-
-                        div {
-                            border-radius: 100px;
-                            height: 3px;
-                            background-color: red;
-                            transition: width 1s ease-in-out;
-                        }
-                    }
-
-                    button {
-                        background-color: #1a1a1a;
-                        border-radius: 8px;
-                        border: 1px solid #1f1f1f;
-                        color: #bfbfbf;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        padding: 8px;
-
-                        &:hover {
-                            cursor: pointer;
-                            color: white;
-                        }
-                        svg {
-                            width: 20px;
-                            height: 20px;
-                        }
-                    }
-                }
-            }
-        }
-
         .ourGenresContainer {
             display: flex;
             gap: 20px;
@@ -131,6 +71,8 @@
             justify-content: flex-start;
             -ms-overflow-style: none; /* IE and Edge */
             scrollbar-width: none; /* Firefox */
+            height: 200px;
+            min-height: 200px;
 
             @media (min-width: 950px) {
                 overflow-x: none;
@@ -158,18 +100,78 @@
                 }
             }
         }
+        .SectionContainer {
+            .SectionControlerContainer {
+                display: flex;
+                justify-content: space-between;
+                // align-items: center;
+                .SectionTitle {
+                    color: white;
+                    font-weight: bold;
+                    font-size: 24px;
+                    line-height: 150%;
+                }
 
-        .TrendingCardsContainer {
-            margin-top: 20px;
-            display: flex;
-            overflow-y: scroll;
-            -ms-overflow-style: none; /* IE and Edge */
-            scrollbar-width: none; /* Firefox */
-            gap: 16px;
-            scroll-behavior: smooth;
+                .SlideControler {
+                    display: none;
 
-            @media (min-width: 950px) {
-                gap: 20px;
+                    @media (min-width: 950px) {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        gap: 20px;
+                        background-color: #0f0f0f;
+                        padding: 16px;
+                        border-radius: 12px;
+
+                        .line {
+                            width: 100px;
+                            height: 3px;
+                            background-color: #333333;
+                            border-radius: 100px;
+
+                            div {
+                                border-radius: 100px;
+                                height: 3px;
+                                background-color: red;
+                                transition: width 1s ease-in-out;
+                            }
+                        }
+
+                        button {
+                            background-color: #1a1a1a;
+                            border-radius: 8px;
+                            border: 1px solid #1f1f1f;
+                            color: #bfbfbf;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            padding: 8px;
+
+                            &:hover {
+                                cursor: pointer;
+                                color: white;
+                            }
+                            svg {
+                                width: 20px;
+                                height: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+            .TrendingCardsContainer {
+                margin-top: 20px;
+                display: flex;
+                overflow-y: scroll;
+                -ms-overflow-style: none; /* IE and Edge */
+                scrollbar-width: none; /* Firefox */
+                gap: 16px;
+                scroll-behavior: smooth;
+
+                @media (min-width: 950px) {
+                    gap: 20px;
+                }
             }
         }
     }

@@ -1,5 +1,6 @@
 import styles from "./MoviesSeriesContainer.module.scss";
 import { useFetch } from "../../hooks/useFetch";
+import Loading from "../Loading/Loading";
 
 type OurGenresProps = {
   sectionType: "movies" | "series";
@@ -13,7 +14,6 @@ const OurGenres = ({ sectionType }: OurGenresProps) => {
     `/genre/${sectionType === "movies" ? "movie" : "tv"}/list`
   );
 
-  if (loading) return <div>Loading...</div>;
   if (error) return <div>Errorr...</div>;
 
   return (
@@ -29,12 +29,16 @@ const OurGenres = ({ sectionType }: OurGenresProps) => {
         Our Genres
       </h2>
       <div className={styles.ourGenresContainer}>
-        {genres.data &&
+        {loading ? (
+          <Loading />
+        ) : (
+          genres.data &&
           genres.data.genres.map((type) => (
             <span className={styles.genreType} key={type.name}>
               {type.name}
             </span>
-          ))}
+          ))
+        )}
       </div>
     </>
   );

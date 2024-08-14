@@ -1,13 +1,21 @@
 .HeroContainer {
     animation-name: test;
-    animation-duration: 0.7s;
+    animation-duration: 1.5s;
     position: relative;
+    height: 468px;
+    min-height: 468px;
+
+    @media (min-width: 1250px) {
+        height: 500px;
+    }
     @keyframes test {
         from {
-            filter: blur(10px);
+            filter: blur(5px);
+            top: 20px;
         }
         to {
             filter: blur(0px);
+            top: 0px;
         }
     }
 
