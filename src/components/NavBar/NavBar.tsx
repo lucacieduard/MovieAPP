@@ -5,12 +5,14 @@ import {
   MagnifyingGlassIcon,
   XMarkIcon,
 } from "@heroicons/react/24/solid";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { useState } from "react";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const closeMenu = () => setIsMenuOpen(false);
+  const location = useLocation();
+  console.log(location.pathname);
 
   return (
     <nav className={styles.navContainer}>
@@ -37,7 +39,17 @@ const NavBar = () => {
             <NavLink
               onClick={closeMenu}
               to={"/movies-and-series"}
-              className={({ isActive }) => (isActive ? `${styles.active}` : ``)}
+              className={({ isActive }) => {
+                if (
+                  location.pathname.includes("movies") ||
+                  location.pathname.includes("series")
+                ) {
+                  console.log("ok");
+                  return `${styles.active}`;
+                } else {
+                  return isActive ? `${styles.active}` : ``;
+                }
+              }}
               end
             >
               Movies & Series
@@ -46,7 +58,7 @@ const NavBar = () => {
           <li className={styles.menuItem}>
             <NavLink
               onClick={closeMenu}
-              to={"/series"}
+              to={"/support"}
               className={({ isActive }) => (isActive ? `${styles.active}` : ``)}
               end
             >

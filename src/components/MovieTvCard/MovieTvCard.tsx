@@ -5,6 +5,7 @@ import {
 } from "@heroicons/react/24/solid";
 import { MovieType } from "../../types";
 import styles from "./MovieTvCard.module.scss";
+import { useNavigate } from "react-router-dom";
 
 type MovieTvCardProps = {
   movie: MovieType;
@@ -17,11 +18,14 @@ const MovieTvCard = ({
   category_type,
   sectionType,
 }: MovieTvCardProps) => {
+  const navigate = useNavigate();
+
   return (
     <div
       className={`${styles.CardContainer} ${
         category_type === "must_watch" && styles.MustWatch
       }`}
+      onClick={() => navigate(`/${sectionType}/${movie.id}`)}
     >
       <img src={`${import.meta.env.VITE_BASE_IMG_URL}${movie.poster_path}`} />
       {category_type === "new_releases" && sectionType === "movies" && (
