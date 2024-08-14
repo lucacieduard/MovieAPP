@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import HeroCard from "./HeroCard";
 import HeroControler from "./HeroControler";
 import styles from "./HeroMoviesSeries.module.scss";
@@ -12,12 +12,19 @@ const HeroMoviesSeries = () => {
   );
   const [activeMovie, setActiveMovie] = useState(0);
   const [random, setRandom] = useState<MovieType[]>([]);
-
+  const scrollRef = useRef<HTMLDivElement>(null);
   const changeMovieHandler = (id: number) => {
     if (id >= random.length) id = 0; // >= movie len
     if (id < 0) id = random.length - 1; // movie len -1
     setActiveMovie(id);
   };
+
+  let oneScroll = 0;
+  if (scrollRef.current?.scrollWidth) {
+    oneScroll = scrollRef.current?.scrollWidth / random.length;
+  }
+
+  scrollRef.current?.scroll(oneScroll * activeMovie, 0);
 
   useEffect(() => {
     if (data.data) {
@@ -35,9 +42,11 @@ const HeroMoviesSeries = () => {
 
   return (
     <div className={styles.HeroContainer}>
-      {random.map((movie, index) => (
-        <HeroCard key={index} id={index} active={activeMovie} movie={movie} />
-      ))}
+      <div className={styles.CardsContainer} ref={scrollRef}>
+        {random.map((movie, index) => (
+          <HeroCard key={index} movie={movie} />
+        ))}
+      </div>
       <HeroControler
         activeMovie={activeMovie}
         changeMovieHandler={changeMovieHandler}

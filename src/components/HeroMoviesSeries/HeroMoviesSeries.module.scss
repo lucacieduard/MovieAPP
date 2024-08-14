@@ -1,110 +1,129 @@
 .HeroContainer {
-    margin-top: 20px;
-    width: 100%;
-    height: 468px;
-    border-radius: 12px;
-    border: none;
+    animation-name: test;
+    animation-duration: 0.7s;
     position: relative;
-
-    @media (min-width: 1250px) {
-        height: 500px;
+    @keyframes test {
+        from {
+            filter: blur(10px);
+        }
+        to {
+            filter: blur(0px);
+        }
     }
 
-    .CardContainer {
-        height: 100%;
+    .CardsContainer {
+        margin-top: 20px;
+        width: 100%;
+        height: 468px;
+        border-radius: 12px;
+        border: none;
         position: relative;
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 12px;
-            border: none;
+        display: flex;
+        gap: 10px;
+        overflow: hidden;
+        scroll-behavior: smooth;
+
+        @media (min-width: 1250px) {
+            height: 500px;
         }
 
-        .CardContent {
-            position: absolute;
-            bottom: 56px;
-            left: 24px;
-            right: 24px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+        .CardContainer {
+            height: 100%;
+            position: relative;
+            min-width: 100%;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 12px;
+                border: none;
+            }
 
-            @media (min-width: 1250px) {
-                bottom: 80px;
-            }
-            .MovieTitle {
-                font-size: 24px;
-                font-weight: 700;
-                line-height: 36px;
-                color: #fff;
-            }
-            .MovieOverview {
-                display: none;
-                @media (min-width: 1050px) {
-                    display: block;
-                    font-weight: 500;
-                    font-size: 16px;
-                    line-height: 24px;
-                    color: #dadada;
-                    max-width: 500px;
-                    margin: 0 auto;
-                }
-            }
-            .buttons {
+            .CardContent {
+                position: absolute;
+                bottom: 56px;
+                left: 24px;
+                right: 24px;
+                text-align: center;
                 display: flex;
                 flex-direction: column;
-                align-items: center;
                 gap: 20px;
 
-                @media (min-width: 600px) {
-                    flex-direction: row;
-                    align-items: center;
-                    justify-content: center;
+                @media (min-width: 1250px) {
+                    bottom: 80px;
                 }
-
-                .MoreInfo {
-                    background-color: #e50000;
-                    border-radius: 8px;
-                    padding: 14px 0;
-                    border: none;
-                    color: white;
-                    font-weight: 600;
-                    line-height: 21px;
-                    font-size: 14px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    gap: 2px;
-                    padding: 14px 20px;
-
-                    max-width: 300px;
-
-                    &:hover {
-                        cursor: pointer;
+                .MovieTitle {
+                    font-size: 24px;
+                    font-weight: 700;
+                    line-height: 36px;
+                    color: #fff;
+                }
+                .MovieOverview {
+                    display: none;
+                    @media (min-width: 1050px) {
+                        display: block;
+                        font-weight: 500;
+                        font-size: 16px;
+                        line-height: 24px;
+                        color: #dadada;
+                        max-width: 500px;
+                        margin: 0 auto;
                     }
                 }
-
-                .actions {
+                .buttons {
                     display: flex;
-                    justify-content: center;
-                    gap: 8px;
-                    button {
-                        background-color: #0f0f0f;
-                        border: 1px solid #262626;
-                        padding: 12px;
-                        color: white;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 20px;
+
+                    @media (min-width: 600px) {
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: center;
+                    }
+
+                    .MoreInfo {
+                        background-color: #e50000;
                         border-radius: 8px;
+                        padding: 14px 0;
+                        border: none;
+                        color: white;
+                        font-weight: 600;
+                        line-height: 21px;
+                        font-size: 14px;
                         display: flex;
                         align-items: center;
                         justify-content: center;
+                        gap: 2px;
+                        padding: 14px 20px;
+
+                        max-width: 300px;
 
                         &:hover {
+                            cursor: pointer;
+                        }
+                    }
+
+                    .actions {
+                        display: flex;
+                        justify-content: center;
+                        gap: 8px;
+                        button {
+                            background-color: #0f0f0f;
+                            border: 1px solid #262626;
+                            padding: 12px;
+                            color: white;
+                            border-radius: 8px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+
                             &:hover {
-                                background-color: #1a1a1a;
-                                cursor: pointer;
-                                color: white;
+                                &:hover {
+                                    background-color: #1a1a1a;
+                                    cursor: pointer;
+                                    color: white;
+                                }
                             }
                         }
                     }
@@ -117,7 +136,6 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        position: absolute;
         position: absolute;
         bottom: 5px;
         left: 24px;
