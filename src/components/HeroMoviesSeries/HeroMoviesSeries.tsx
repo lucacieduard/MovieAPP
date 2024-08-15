@@ -47,8 +47,8 @@ const HeroMoviesSeries = () => {
       ) : (
         <>
           <div className={styles.CardsContainer} ref={scrollRef}>
-            {random.map((movie, index) => (
-              <HeroCard key={index} movie={movie} />
+            {random.map((movie) => (
+              <HeroCard key={movie.id} movie={movie} carousel={true} />
             ))}
           </div>
           <HeroControler
